@@ -6,9 +6,11 @@
   "scripts": {
     "test": "nodemon index.js"
   },
+  "type": "module",
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "web3": "^1.7.1",
     "ws": "^8.5.0"
   }
 }
