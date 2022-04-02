@@ -12,10 +12,14 @@ export async function event_updater(ws, rpc_endpoint, abi, address, event_name) 
 
     setInterval(async function() {
         let results = await contract.getPastEvents(event_name, options)
-        console.log(results)
         if(results.length != 0) {
             ws.send(JSON.stringify(results))
-            options.fromBlock = await web3.eth.getBlockNumber()
+            options.fromBlock = results.map(result => result['blockNumber'])
+                .reduce(function(p, v) {
+                    return (p >= v) ? p : v
+                }) + 1
+            console.log(options.fromBlock)
+            console.log(options.toBlock)
         }   
     }, 2000) 
 }
