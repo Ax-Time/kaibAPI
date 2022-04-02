@@ -18,8 +18,6 @@ export async function event_updater(ws, rpc_endpoint, abi, address, event_name) 
                 .reduce(function(p, v) {
                     return (p >= v) ? p : v
                 }) + 1
-            console.log(options.fromBlock)
-            console.log(options.toBlock)
         }   
     }, 2000) 
 }
