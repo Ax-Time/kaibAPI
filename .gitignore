@@ -1,2 +1,5 @@
 node_modules/
-client_example/
+db/
+.env
+db_handling.js
+Makefile
